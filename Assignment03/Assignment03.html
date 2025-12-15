@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <style>
+        body{
+            margin:0;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color:#ccc;
+            font-family: 'Courier New', Courier, monospace;
+        }
+        .login-container{
+            background: #ffffff;
+            padding: 30px;
+            width: 300px;
+            border-radius: 15px;
+            box-shadow: 5px 5px ;
+        }
+        .login-container h2{
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        label{
+            font-size: large;
+            
+        }
+        input{
+           
+            width: 100%;
+            padding: 7px;
+            margin-top: 6px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 14px;
+        }
+        input:focus{
+            outline: none;
+            border-color:black
+        }
+        button {
+            width: 100%;
+            padding:10px;
+            background-color: black;
+            color: white;
+            font-size: 14px;
+            border-radius: 5px;
+        
+        }
+        button:hover{
+            background-color: #0056b3;
+        }
+        .error-message{
+            color: red;
+            font-size: 14px;
+            margin-top: 2px;
+            margin-left: 2px;
+            visibility: hidden;
+        }
+    </style>
+    <div class="login-container">
+        <h2>Login</h2>
+        <form onsubmit="submitForm(); return false;">
+            <label for = "email">Email Address</label><br><br>
+            <input type="text" id="email" placeholder="Enter email">
+            <p id="emailError" class ="error-message">Please enter a valid email address</p><br>
+            <label for ="password">Password</label><br><br>
+            <input type="text" id="password" placeholder="Password">
+            <p id="passwordError" class ="error-message">Password must be at least 6 characters long</p><br><br>
+            <button style="background-color: aqua;">Login</button>
+            
+        </form>
+    </div>
+        <script>
+        const emailRegx = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+        const passwordRegx = /^.{6,}$/; 
+
+        function submitForm() {
+            const email = document.getElementById("email");
+            const emailError = document.getElementById("emailError");
+
+            const password = document.getElementById("password");
+            const passwordError = document.getElementById("passwordError");
+
+            emailError.style.visibility = "hidden";
+            passwordError.style.visibility = "hidden";
+
+            let valid = true;
+
+            if (!emailRegx.test(email.value)) {
+                emailError.style.visibility = "visible";
+                valid = false;
+            }
+
+            if (!passwordRegx.test(password.value)) {
+                passwordError.style.visibility = "visible";
+                valid = false;
+            }
+
+            if (valid) {
+                alert("Form submitted");
+            }
+        }
+        </script>
+ 
+</body>
+</html>
