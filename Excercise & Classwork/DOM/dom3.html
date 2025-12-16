@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- Creating new element -->
+  <button onclick="addelement()">Add paragraph</button>
+    
+  <script>
+    function addelement(){
+        const para=document.createElement('p')
+        para.innerText="Sakshi"
+        document.body.appendChild(para)
+    }
+  </script>
+</body>
+</html>
