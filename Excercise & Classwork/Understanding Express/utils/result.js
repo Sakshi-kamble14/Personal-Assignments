@@ -1,0 +1,4 @@
+function createresult(){
+    const result={}
+    
+}
